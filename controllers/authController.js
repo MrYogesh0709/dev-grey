@@ -40,7 +40,7 @@ const handleLogin = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       maxAge: 24 * 60 * 60 * 1000,
     });
-    res.json({ accessToken, roles });
+    res.json({ accessToken });
   } else {
     res.sendStatus(401);
   }
