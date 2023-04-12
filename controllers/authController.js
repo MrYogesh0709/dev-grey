@@ -24,12 +24,14 @@ const handleLogin = async (req, res) => {
         },
       },
       process.env.ACCESS_TOKEN_SECRET,
-      { expiresIn: 1000 * 60 * 5 }
+      // { expiresIn: 1000 * 60 * 5 }
+      { expiresIn: "10s" }
     );
     const refreshToken = jwt.sign(
       { username: foundUser.username },
       process.env.REFRESH_TOKEN_SECRET,
-      { expiresIn: "1d" }
+      // { expiresIn: "1d" }
+      { expiresIn: "15s" }
     );
     // Saving refreshToken with current user
     foundUser.refreshToken = refreshToken;
